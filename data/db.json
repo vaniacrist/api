@@ -1,0 +1,19 @@
+{
+    "produtos": [
+        {
+            "id": 1,
+            "descricao": "sapato",
+            "preco": "19.90"
+        },
+        {
+            "id": 2,
+            "descricao": "Sandalia",
+            "preco": "29.90"
+        },
+        {
+            "id": 3,
+            "descricao": "acessorios",
+            "preco": "39.90"
+        }
+    ]
+}
