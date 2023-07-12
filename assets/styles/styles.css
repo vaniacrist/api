@@ -1,48 +1,68 @@
 h1 {
     text-align: center;
     text-shadow: 1px 1px;
-
 }
+body {
+    
+    
+}
+   
+    
+
+
 form {
+    width: 420px;
     text-align: center;
     font-family: sans-serif;
     padding: 20px;
-
+    background-color: rgb(177, 187, 196)
+    
 }
-
 input {
     padding: 5px 5px;
     background-color: rgba(70, 128, 179, 0.322);
     margin-top: 10px;
-    border-radius: 40px;
-    width: 304px;
+    border-radius: 10px;
+    width:400px;
     height: 34px;
 
 }
 #btcadastrar{
-    border-radius: 30px;
+    padding: 10px;
+    border-radius: 10px;
     background-color: aqua;
-    width: 304px;
-    height: 34px;
+    width: 200px;
+    height: 40px;
     text-align: center;
     font-size: 24px;
     font-family: sans-serif;
     line-height: normal;
     border: 1px solid #000;
+    margin-top: 30px;
+    transition: filter 0.2s;
+    cursor: pointer;
+    
+    }
+
 }   
-#form{
-   
-}
 label {
+    display:block;
     font-size: 20px;
     align-items: 5px;
     margin-right: 5px;
     background-color: rgba(228, 153, 41, 0.027);
+    text-align:justify;
+    
+    }
+.name imput{
+    width: 320px;
+    padding:10px;
+    font-size: 18px;
+    color: #333;
+}
+
+
+
     
 
-}
-body {
 
-    
-
-}
