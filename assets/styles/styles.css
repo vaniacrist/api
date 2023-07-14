@@ -1,60 +1,72 @@
-h1 {
+.page-title {
     text-align: center;
-    text-shadow: 1px 1px;
+    font-family: ubuntu;
+    font-size: 32px;
+    font-style: normal;
+    color: #000;
+    font-weight: 400;
+    line-height: normal;
 }
-body {
-    
-    
+h2{
+    text-align: center;
 }
-   
-    
 
-
+html {
+background: #000;
+}
 form {
-    width: 420px;
-    text-align: center;
-    font-family: sans-serif;
-    padding: 20px;
-    background-color: rgb(177, 187, 196)
+    
+    height: 439px;
+    width: 25rem;
+    border-radius: 12px;
+    background: #fff;
+    box-shadow: 4px 4px 4px 0px rgba ( 0,0,0, 0.25);
+    margin: auto;
+    
     
 }
 input {
-    padding: 5px 5px;
-    background-color: rgba(70, 128, 179, 0.322);
-    margin-top: 10px;
-    border-radius: 10px;
-    width:400px;
+    width: 304px;px;
     height: 34px;
+    margin:18px;
+    border-radius: 4px;
+    border: 1px solid;
+    background: #feffe4;
 
 }
-#btcadastrar{
-    padding: 10px;
-    border-radius: 10px;
-    background-color: aqua;
-    width: 200px;
-    height: 40px;
-    text-align: center;
-    font-size: 24px;
-    font-family: sans-serif;
-    line-height: normal;
-    border: 1px solid #000;
-    margin-top: 30px;
-    transition: filter 0.2s;
-    cursor: pointer;
+button{
+ 
+        width: 167px;
+        height: 46;
+        margin:19px;
+        border-radius:4px ;
+        font-size: 12pt;
+        box-shadow: 4px 4px 4px 0px;
+        background: #48a4fa;
+        color:#fff;
+   }
+    #btcancelar {
+ 
+   width: 118px;
+   height: 46px;
+   background: #f59999;
+   color:#444;
+   font-size:12pt;
+
+ 
     
     }
 
-}   
+  
 label {
     display:block;
     font-size: 20px;
-    align-items: 5px;
-    margin-right: 5px;
-    background-color: rgba(228, 153, 41, 0.027);
-    text-align:justify;
+    margin-right: 220px;
+    text-align:flex;
+
     
     }
-.name imput{
+.nameimput{
     width: 320px;
     padding:10px;
     font-size: 18px;
@@ -62,7 +74,12 @@ label {
 }
 
 
+body{
 
+    width: 1440px;
+    height: 1024px;
+    background-color: #feffe4;
+}
     
 
 

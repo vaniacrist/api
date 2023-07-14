@@ -13,9 +13,16 @@
 <body>
     
     <header>
+        <div class="page-title">
+        
 
     <h1>Update com Put</h1>
+        </div>
 </header>
+<section class="container">
+
+
+
 
 <form action="" method="Post">
     
@@ -32,15 +39,29 @@
         <input type="text" id="Preço" placeholder="Digite o preço do produto" disabled> <br>
     
         
-        <button type="button" id="btcadastrar">Cadastrar</button>
+        <button type="button" id="btatualizar">Atualizar</button>
+        <button type="button" id="btcancelar">Cancelar</button>
             
     </form>
+</section>
+<div>
+    <h2>Lista de Produtos</h2>
+</div>
        
     <div id="listaProdutos"></div>
     <script>
-        // criando uma requisiçao de resposta via javascript/api
 
-        document.querySelector('#btcadastrar').addEventListener('click', () => {
+        // criando uma requisiçao de resposta via javascript/api
+        document.querySelector('#listaProdutos').addEventListener("click",event  => {
+           // console.log(event.target)
+            if(event.target.parentElement.classList.contains('produto')) {
+            // console.log(event.target);
+            const elementoBase = event.target.parenteElement;
+            document.querySelector('#input#id').value = elementoBase.querySelector
+            }
+
+        })
+        document.querySelector('#btatualizar').addEventListener('click', () => {
 
             const dados = {
                 'id': null,
