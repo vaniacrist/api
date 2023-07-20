@@ -1,0 +1,133 @@
+<!DOCTYPE html> 
+<html lang="pt-br">
+
+<head>
+    <meta charset="pt-b">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,500;0,700;1,400&display=swap" rel="stylesheet">
+
+    <title>Creat com Put</title>
+</head>
+<body>
+    
+    <header>
+        <div class="page-title">
+        
+
+    <h1>Update com Put</h1>
+        </div>
+</header>
+<section class="container">
+
+
+
+
+<form action="" method="Post">
+    
+    <h2>Alteração de Produtos</h2>
+        <label for="id">Id</label>
+        <input type="text" id="id" placeholder="Digite o ID do produto" disabled> <br>
+    
+        <label for="id">Descricao</label>
+        <input type="text" id="Descriçao" placeholder="Digite a descricao do produto" disabled> <br>
+
+        
+    
+        <label for="id">Preco</label>
+<<<<<<<< HEAD:creat-com-post.html
+        <input type="text" id="Preço"><br>
+
+        
+
+        </form>
+========
+        <input type="text" id="Preço" placeholder="Digite o preço do produto" disabled> <br>
+    
+        
+        <button type="button" id="btatualizar">Atualizar</button>
+        <button type="button" id="btcancelar">Cancelar</button>
+            
+    </form>
+</section>
+<div>
+    <h2>Lista de Produtos</h2>
+</div>
+       
+>>>>>>>> 1bca97ac055e9db8c8fcac2e9de1db4694944c45:update-com-put.html
+    <div id="listaProdutos"></div>
+    <script>
+
+        // criando uma requisiçao de resposta via javascript/api
+        document.querySelector('#listaProdutos').addEventListener("click",event  => {
+           // console.log(event.target)
+            if(event.target.parentElement.classList.contains('produto')) {
+            // console.log(event.target);
+            const elementoBase = event.target.parenteElement;
+            document.querySelector('#input#id').value = elementoBase.querySelector
+            }
+
+        })
+        document.querySelector('#btatualizar').addEventListener('click', () => {
+
+            const dados = {
+                'id': null,
+                'descricao': document.querySelector('#descricao').value,
+                'preco': document.querySelector('#descricao').value
+            }
+
+            fetch('http://localhost:3000/produtos', {
+                method: 'POST',
+                headers: {
+                    'Content-type': 'application/json'
+                },
+                body: JSON.stringify(dados)
+            })
+
+                .then(resposta => {
+                    console.log(resposta)
+                });
+
+        });
+        fetch('http://localhost:3000/produtos', {
+            method: 'GET',
+            headers: {
+                'content-type': 'application/json'
+            }
+
+        })
+            .then(resposta => resposta.json())
+            .then(resposta => {
+                for (let i = 0; i < resposta.length; i++) {
+                    const ul = document.createElement('ul');
+
+                    ul.appendChild(document.createElement('li')).innerHTML = resposta[i].id;
+                    ul.appendChild(document.createElement('li')).innerHTML = resposta[i].descricao;
+                    ul.appendChild(document.createElement('li')).innerHTML = resposta[i].preco;
+
+                    document.querySelector('#listaProdutos').appendChild(ul);
+                }
+
+            })
+
+    </script>
+    <script src="./assets/scripts/estilos.js"></script>
+    
+
+</body>
+
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
