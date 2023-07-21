@@ -1,84 +1,65 @@
-<!DOCTYPE html> 
 <html lang="pt-br">
 
 <head>
-    <meta charset="pt-b">
+    <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,500;0,700;1,400&display=swap" rel="stylesheet">
-
-    <title>Creat com Put</title>
+    <title>UPDATE COM PUT</title>
 </head>
+
 <body>
-    
     <header>
         <div class="page-title">
-        
+        <h1>UPDATE COM PUT</h1>
+    </div>
 
-    <h1>Update com Put</h1>
+    </header>
+    <section class="container"> 
+        <div class="container-alteracao-de-produto">
+    <h2 class="sub-titulo">Alteração de Produto</h2>
+    <form action=""method="post">
+        <div class ="label-input">
+            <label class= "ident" for="id" class="id">ID</label>
+            <input class="input input-ident" type="text" id="id" placeholder="digite o ID do produto"> <br>
         </div>
-</header>
-<section class="container">
+        <div class ="label-input">
+            <label class ="descricao" for="id">Descrição</label>
+            <input class="input input-descricao" type="text" id="Descricao" placeholder ="digite a descrição do produto"><br>
+        </div>
+        <div class ="label-input">
+            <label class ="preco" for="id">Preço</label>
+            <input class ="input input-preco" type="text" id="Preco" placeholder="digite o preço do produto"><br>
+        </div>
+        <div class = "button">
+            <button type="button" id="btAtualizar">Atualizar</button>
+            <button type="reset" id="btCancelar">Cancelar</button>
+            </div>
 
-
-
-
-<form action="" method="Post">
-    
-    <h2>Alteração de Produtos</h2>
-        <label for="id">Id</label>
-        <input type="text" id="id" placeholder="Digite o ID do produto" disabled> <br>
-    
-        <label for="id">Descricao</label>
-        <input type="text" id="Descriçao" placeholder="Digite a descricao do produto" disabled> <br>
-
-        
-    
-        <label for="id">Preco</label>
-<<<<<<<< HEAD:creat-com-post.html
-        <input type="text" id="Preço"><br>
-
-        
-
-        </form>
-========
-        <input type="text" id="Preço" placeholder="Digite o preço do produto" disabled> <br>
-    
-        
-        <button type="button" id="btatualizar">Atualizar</button>
-        <button type="button" id="btcancelar">Cancelar</button>
             
+    </div>
     </form>
-</section>
-<div>
-    <h2>Lista de Produtos</h2>
-</div>
-       
->>>>>>>> 1bca97ac055e9db8c8fcac2e9de1db4694944c45:update-com-put.html
+
+    
+        </div>
+    </section>
+    <div class="descricao">
+    <h2> Lista de Produtos</h2>
+    </div>
     <div id="listaProdutos"></div>
     <script>
-
         // criando uma requisiçao de resposta via javascript/api
-        document.querySelector('#listaProdutos').addEventListener("click",event  => {
-           // console.log(event.target)
-            if(event.target.parentElement.classList.contains('produto')) {
-            // console.log(event.target);
-            const elementoBase = event.target.parenteElement;
-            document.querySelector('#input#id').value = elementoBase.querySelector
-            }
 
-        })
-        document.querySelector('#btatualizar').addEventListener('click', () => {
+        document.querySelector('#btAtualizar').addEventListener('click', () => {
 
             const dados = {
                 'id': null,
                 'descricao': document.querySelector('#descricao').value,
-                'preco': document.querySelector('#descricao').value
+                'preco': document.querySelector('#preco').value
             }
 
-            fetch('http://localhost:3000/produtos', {
-                method: 'POST',
+            const id = document.querySelector('#id').value;
+//atualiza os produtos
+            fetch( `http://localhost:3000/produtos/${id}`, {
+                method: 'PUT',
                 headers: {
                     'Content-type': 'application/json'
                 },
@@ -86,10 +67,15 @@
             })
 
                 .then(resposta => {
-                    console.log(resposta)
-                });
+                    if(resposta.ok) {
+                        alert('Produto Atualizado');
+                        location.reload(); //jeito porcao, vamos melhorar depois
+                    }
+                })
 
         });
+
+        //busca os produtos
         fetch('http://localhost:3000/produtos', {
             method: 'GET',
             headers: {
@@ -101,10 +87,30 @@
             .then(resposta => {
                 for (let i = 0; i < resposta.length; i++) {
                     const ul = document.createElement('ul');
+                    ul.id = resposta[i].id;
+                    ul.classList.add('produto');
+                    
+                    const liId = document.createElement('li');
+                    liId.setAttribute('data-produto' , 'id');
+                    liId.innerHTML = resposta[i].id;
+                    liId.classList.add('produto-id');
 
-                    ul.appendChild(document.createElement('li')).innerHTML = resposta[i].id;
-                    ul.appendChild(document.createElement('li')).innerHTML = resposta[i].descricao;
-                    ul.appendChild(document.createElement('li')).innerHTML = resposta[i].preco;
+
+                    const liDescricao = document.createElement('li');
+                    liDescricao.setAttribute('data-produto' , 'descricao');
+                    liDescricao.innerHTML = resposta[i].descricao;
+                    liDescricao.classList.add("li");
+                    
+
+                    const liPreco = document.createElement('li');
+                    liPreco.setAttribute('data-produto' , 'preco');
+                    liPreco.innerHTML = resposta[i].preco;
+                    liPreco.classList.add("li")
+
+                   
+
+                    ul.append(liId , liDescricao , liPreco);
+                    
 
                     document.querySelector('#listaProdutos').appendChild(ul);
                 }
@@ -112,22 +118,9 @@
             })
 
     </script>
-    <script src="./assets/scripts/estilos.js"></script>
-    
+    <script src=" ./assets/scripts/estilos.js"></script>
+    <script type="module" src=" ./assets/scripts/update-com-put.js"></script>
 
 </body>
 
 </html>
-
-
-
-
-
-
-
-
-
-
-
-
-
